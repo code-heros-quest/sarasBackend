@@ -32,9 +32,11 @@ io.on('connection', (socket) => {
 
   // ---- adds players to an open game room ---- //
   socket.on('join game', gameId => {
+    console.log(gameId);
     const game = liveGames[gameId];
     joinGame(socket, game);
-    socket.emit('choose character', game);
+    console.log(game);
+    // socket.emit('choose character', game);
     // use the game.id passed to give your friends the game code to join, use game.name to render a title to the users page? Do we need to give the client less of this info? like only the id and name?
   })
 
